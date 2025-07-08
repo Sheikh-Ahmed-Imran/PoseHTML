@@ -43,7 +43,8 @@
         }
       });
 
-      const camera = new CameraUtils.Camera(videoElement, {
+      // ✅ Fixed: Use global Camera, not CameraUtils.Camera
+      const camera = new Camera(videoElement, {
         onFrame: async () => {
           await pose.send({ image: videoElement });
         },
